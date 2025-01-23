@@ -7,7 +7,7 @@ class treballador(models.Model):
     _name = 'empresa_neteja.treballador'
     _description = 'empresa_neteja.treballador'
 
-    name = fields.Char(string='Nom')
+    name = fields.Char(string='Nom',required=True)
     rol = fields.Selection([
         ('1','Oficinista'),
         ('2','Barrendero')
@@ -25,4 +25,10 @@ class tasca(models.Model):
         ('2', 'en curs'),
         ('3','completada')
     ],string='Estat')
+    duracion = fields.Integer(string='Duracion')
+
+    def update_duracion(self):
+        for tasca in self.search([]):
+            tasca.duracion = tasca.duracion + 1
+
 

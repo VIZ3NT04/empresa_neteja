@@ -21,11 +21,22 @@
           <field name="nom"/>
           <field name="treballador_id"/>
           <field name="estat"/>
+          <field name="duracion"/>
         </tree>
       </field>
     </record>
 
+    <record model="ir.ui.view" id="empresa_neteja.search_tasca">
+      <field name="name">tasca search</field>
+      <field name="model">empresa_neteja.tasca</field>
+      <field name="arch" type="xml">
+        <search>
 
+          <field name="nom"/>
+
+        </search>
+      </field>
+    </record>
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="empresa_neteja.action_window_treballador">
@@ -37,7 +48,7 @@
     <record model="ir.actions.act_window" id="empresa_neteja.action_window_tasca">
       <field name="name">tasca window</field>
       <field name="res_model">empresa_neteja.tasca</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,search</field>
     </record>
 
 
