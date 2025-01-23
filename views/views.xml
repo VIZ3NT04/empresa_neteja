@@ -1,0 +1,77 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="empresa_neteja.list_treballador">
+      <field name="name">treballador list</field>
+      <field name="model">empresa_neteja.treballador</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nom"/>
+          <field name="rol"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="empresa_neteja.list_tasca">
+      <field name="name">tasca list</field>
+      <field name="model">empresa_neteja.tasca</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nom"/>
+          <field name="treballador_id"/>
+          <field name="estat"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="empresa_neteja.action_window_treballador">
+      <field name="name">treballador window</field>
+      <field name="res_model">empresa_neteja.treballador</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="empresa_neteja.action_window_tasca">
+      <field name="name">tasca window</field>
+      <field name="res_model">empresa_neteja.tasca</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="empresa_neteja.action_server">
+      <field name="name">empresaNeteja server</field>
+      <field name="model_id" ref="model_empresa_neteja_empresa_neteja"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="empresaNeteja" id="empresa_neteja.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu Treballador" id="empresa_neteja.treballador" parent="empresa_neteja.menu_root"/>
+    <menuitem name="Menu Tasca" id="empresa_neteja.tasca" parent="empresa_neteja.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="List Treballadors" id="empresa_neteja.menu_list_treballador" parent="empresa_neteja.treballador"
+              action="empresa_neteja.action_window_treballador"/>
+     <menuitem name="List Tasca" id="empresa_neteja.menu_list_tasca" parent="empresa_neteja.tasca"
+              action="empresa_neteja.action_window_tasca"/>
+
+  </data>
+</odoo>

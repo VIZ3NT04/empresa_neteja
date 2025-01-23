@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_empresa_neteja_treballador,empresa_neteja.treballador,model_empresa_neteja_treballador,base.group_user,1,1,1,1
+access_empresa_neteja_tasca,empresa_neteja.tasca,model_empresa_neteja_tasca,base.group_user,1,1,1,1
+
