@@ -7,7 +7,7 @@
       <field name="model">empresa_neteja.treballador</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="nom"/>
+          <field name="name"/>
           <field name="rol"/>
         </tree>
       </field>

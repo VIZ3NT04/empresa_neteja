@@ -7,11 +7,12 @@ class treballador(models.Model):
     _name = 'empresa_neteja.treballador'
     _description = 'empresa_neteja.treballador'
 
-    nom = fields.Char(string='Nom')
+    name = fields.Char(string='Nom')
     rol = fields.Selection([
         ('1','Oficinista'),
         ('2','Barrendero')
     ],string='Rol')
+    tasques = fields.Many2many('empresa_neteja.tasca',string='Tasques')
 
 class tasca(models.Model):
     _name = 'empresa_neteja.tasca'
